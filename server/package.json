@@ -4,10 +4,15 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "migrate": "ts-node src/migrations/runner.ts"
+    "migrate": "ts-node src/migrations/runner.ts",
+    "start": "ts-node src/index.ts"
   },
   "dependencies": {
+    "@graphql-tools/graphql-file-loader": "^7.3.4",
+    "@graphql-tools/load": "^7.5.2",
     "@types/pg": "^8.6.5",
+    "apollo-server": "^3.6.4",
+    "graphql": "^16.3.0",
     "pg": "^8.7.3",
     "postgres-migrations": "^5.3.0",
     "ts-node": "^10.7.0",
