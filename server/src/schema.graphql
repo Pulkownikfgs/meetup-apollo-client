@@ -1,6 +1,7 @@
 type Student {
   id: ID!
   name: String!
+  task_answers: [TaskAnswer!]
 }
 
 type Task {

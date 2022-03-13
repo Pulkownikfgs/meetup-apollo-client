@@ -3,7 +3,7 @@ import {Resolvers} from '../generated/graphql';
 
 import {students} from './students';
 import {tasks} from './tasks';
-import {answers} from './answers';
+import {answers, studentTaskAnswers} from './answers';
 
 export const resolvers: Resolvers<Context> = {
   Query: {
@@ -12,5 +12,8 @@ export const resolvers: Resolvers<Context> = {
   },
   Task: {
     answers,
+  },
+  Student: {
+    task_answers: studentTaskAnswers,
   },
 };
