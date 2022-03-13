@@ -3,11 +3,13 @@ import {loadSchemaSync} from '@graphql-tools/load';
 import {GraphQLFileLoader} from '@graphql-tools/graphql-file-loader';
 import {ApolloServer} from 'apollo-server';
 
+import {Resolvers} from './generated/graphql';
+
 const schema = loadSchemaSync(join(__dirname, './schema.graphql'), {
   loaders: [new GraphQLFileLoader()],
 });
 
-const resolvers = {
+const resolvers: Resolvers = {
   Query: {
     hello: () => 'world',
   },
