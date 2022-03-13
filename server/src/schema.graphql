@@ -1,3 +1,8 @@
+type Student {
+  id: ID
+  name: String
+}
+
 type Query {
-  hello: String
+  students: [Student!]!
 }
