@@ -1,6 +1,6 @@
 type Student {
-  id: ID
-  name: String
+  id: ID!
+  name: String!
 }
 
 type Query {
