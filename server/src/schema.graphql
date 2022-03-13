@@ -3,6 +3,13 @@ type Student {
   name: String!
 }
 
+type Task {
+  id: ID!
+  title: String!
+  description: String!
+}
+
 type Query {
   students: [Student!]!
+  tasks: [Task!]!
 }
