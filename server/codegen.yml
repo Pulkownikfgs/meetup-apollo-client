@@ -6,6 +6,7 @@ generates:
     config:
       mappers:
         TaskAnswer: ../mappers#TaskAnswerType
+        TaskAnswerComment: ../mappers#TaskAnswerCommentType
     plugins:
       - typescript
       - typescript-resolvers

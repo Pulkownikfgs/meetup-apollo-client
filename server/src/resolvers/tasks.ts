@@ -1,10 +1,14 @@
 import {Context} from '../context';
-import {QueryResolvers, TaskAnswerResolvers} from '../generated/graphql';
+import {QueryResolvers, ResolversTypes, Resolver} from '../generated/graphql';
 import {getTasks, getTaskById} from '../store/tasks';
 import {idsToString} from '../utils/idsToString';
 
 type TasksResolver = QueryResolvers<Context>['tasks'];
-type AnswerTaskResolver = TaskAnswerResolvers<Context>['task'];
+type TaskByIdResolver = Resolver<
+  ResolversTypes['Task'],
+  {id_task: string},
+  Context
+>;
 
 export const tasks: TasksResolver = (parent, args, context) => {
   const {client} = context;
@@ -14,7 +18,7 @@ export const tasks: TasksResolver = (parent, args, context) => {
   });
 };
 
-export const answerTask: AnswerTaskResolver = (parent, args, context) => {
+export const taskById: TaskByIdResolver = (parent, args, context) => {
   const {client} = context;
   const {id_task} = parent;
 

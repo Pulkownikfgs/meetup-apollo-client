@@ -17,6 +17,15 @@ type TaskAnswer {
   timestamp: String!
   student: Student!
   task: Task!
+  comments: [TaskAnswerComment!]
+}
+
+type TaskAnswerComment {
+  id: ID!
+  student: Student!
+  task_answer: TaskAnswer!
+  text: String!
+  timestamp: String!
 }
 
 type Query {

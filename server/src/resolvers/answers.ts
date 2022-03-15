@@ -1,6 +1,13 @@
 import {Context} from '../context';
-import {StudentResolvers, TaskResolvers} from '../generated/graphql';
 import {
+  Resolver,
+  ResolversTypes,
+  StudentResolvers,
+  TaskAnswerCommentResolvers,
+  TaskResolvers,
+} from '../generated/graphql';
+import {
+  getTaskAnswerById,
   getTaskAnswersByStudentId,
   getTaskAnswersByTaskId,
   TaskAnswerRow,
@@ -8,6 +15,11 @@ import {
 
 type TaskAnswersResolvers = TaskResolvers<Context>['answers'];
 type StudentTaskAnswersResolvers = StudentResolvers<Context>['task_answers'];
+type TaskAnswerByIdResolver = Resolver<
+  ResolversTypes['TaskAnswer'],
+  {id_task_answer: string},
+  Context
+>;
 
 const rowTransformer = ({
   id,
@@ -43,4 +55,17 @@ export const studentTaskAnswers: StudentTaskAnswersResolvers = (
   return getTaskAnswersByStudentId(client, Number(id_student)).then((rows) => {
     return rows.map((row) => rowTransformer(row));
   });
+};
+
+export const taskAnswerById: TaskAnswerByIdResolver = (
+  parent,
+  args,
+  context,
+) => {
+  const {client} = context;
+  const {id_task_answer} = parent;
+
+  return getTaskAnswerById(client, Number(id_task_answer)).then((row) =>
+    rowTransformer(row),
+  );
 };

@@ -23,3 +23,11 @@ export const getTaskAnswersByStudentId = (client: Client, id_student: number) =>
       [id_student],
     )
     .then(({rows}) => rows);
+
+export const getTaskAnswerById = (client: Client, id: number) =>
+  client
+    .query<TaskAnswerRow>(
+      'select id, id_task, id_student, content, timestamp from task_answers WHERE id = $1',
+      [id],
+    )
+    .then(({rows}) => rows[0]);
