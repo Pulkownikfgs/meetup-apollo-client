@@ -3,9 +3,12 @@ schema: 'src/schema.graphql'
 documents: null
 generates:
   src/generated/graphql.ts:
+    config:
+      mappers:
+        TaskAnswer: ../mappers#TaskAnswerType
     plugins:
-      - 'typescript'
-      - 'typescript-resolvers'
+      - typescript
+      - typescript-resolvers
   ./graphql.schema.json:
     plugins:
-      - 'introspection'
+      - introspection

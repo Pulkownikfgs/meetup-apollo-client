@@ -1,21 +1,25 @@
 import {Context} from '../context';
-import {QueryResolvers} from '../generated/graphql';
+import {QueryResolvers, TaskAnswerResolvers} from '../generated/graphql';
+import {getTasks, getTaskById} from '../store/tasks';
 import {idsToString} from '../utils/idsToString';
 
-interface TaskRow {
-  id: number;
-  title: string;
-  description: string;
-}
+type TasksResolver = QueryResolvers<Context>['tasks'];
+type AnswerTaskResolver = TaskAnswerResolvers<Context>['task'];
 
-export const tasks: QueryResolvers<Context>['tasks'] = (
-  parent,
-  args,
-  context,
-) => {
+export const tasks: TasksResolver = (parent, args, context) => {
   const {client} = context;
 
-  return client.query<TaskRow>('select * from tasks').then((res) => {
-    return idsToString(res.rows);
+  return getTasks(client).then((rows) => {
+    return idsToString(rows);
   });
+};
+
+export const answerTask: AnswerTaskResolver = (parent, args, context) => {
+  const {client} = context;
+  const {id_task} = parent;
+
+  return getTaskById(client, Number(id_task)).then(({id, ...rest}) => ({
+    id: String(id),
+    ...rest,
+  }));
 };
