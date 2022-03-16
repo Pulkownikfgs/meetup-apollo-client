@@ -11,6 +11,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { Sidebar } from '../Sidebar';
 
 const drawerWidth = 240;
 
@@ -110,6 +111,7 @@ export const Layout: FC = ({ children }) => {
           </IconButton>
         </DrawerHeader>
         <Divider />
+        <Sidebar />
       </Drawer>
       <Main open={open}>
         <DrawerHeader />
