@@ -30,5 +30,6 @@ type TaskAnswerComment {
 
 type Query {
   students: [Student!]!
+  student(id: ID!): Student!
   tasks: [Task!]!
 }

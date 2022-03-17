@@ -10,6 +10,8 @@ type StudentByIdResolver = Resolver<
   Context
 >;
 
+type StudentResolver = QueryResolvers<Context>['student'];
+
 export const students: StudentsResolver = (parent, args, context) => {
   const {client} = context;
 
@@ -18,11 +20,25 @@ export const students: StudentsResolver = (parent, args, context) => {
   });
 };
 
-export const studentById: StudentByIdResolver = (parent, args, context) => {
+export const studentByParentId: StudentByIdResolver = (
+  parent,
+  args,
+  context,
+) => {
   const {client} = context;
   const {id_student} = parent;
 
   return getStudentById(client, Number(id_student)).then(({id, name}) => ({
+    id: String(id),
+    name,
+  }));
+};
+
+export const student: StudentResolver = (parent, args, context) => {
+  const {client} = context;
+  const {id} = args;
+
+  return getStudentById(client, Number(id)).then(({id, name}) => ({
     id: String(id),
     name,
   }));
