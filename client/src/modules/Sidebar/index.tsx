@@ -1,44 +1,16 @@
-import { FC, useMemo, forwardRef } from 'react';
+import { FC } from 'react';
 
 import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import { Link as RouterLink, LinkProps as RouterLinkProps } from 'react-router-dom';
-
-interface ListItemLinkProps {
-  icon?: React.ReactElement;
-  primary: string;
-  to: string;
-}
-
-const ListItemLink: FC<ListItemLinkProps> = (props: ListItemLinkProps) => {
-  const { icon, primary, to } = props;
-
-  const renderLink = useMemo(
-    () =>
-      forwardRef<HTMLAnchorElement, Omit<RouterLinkProps, 'to'>>(function Link(itemProps, ref) {
-        return <RouterLink to={to} ref={ref} {...itemProps} role={undefined} />;
-      }),
-    [to]
-  );
-
-  return (
-    <li>
-      <ListItem button component={renderLink}>
-        {icon ? <ListItemIcon>{icon}</ListItemIcon> : null}
-        <ListItemText primary={primary} />
-      </ListItem>
-    </li>
-  );
-};
+import { ListItemLink } from './ListItemLink';
+import { ROUTES } from '@/pages/routes';
 
 export const Sidebar: FC = () => {
   return (
     <List>
       <ListItemLink to='/' primary='Home' />
-      <ListItemLink to='/1-non-normalised' primary='1. Non-normalised cache' />
-      <ListItemLink to='/2-normalised' primary='2. Normalised cache' />
+      {ROUTES.map(({ path, title }, index) => (
+        <ListItemLink key={path} to={path} primary={`${index + 1}. ${title}`} />
+      ))}
     </List>
   );
 };
