@@ -4,6 +4,7 @@ import {getTasks, getTaskById} from '../store/tasks';
 import {idsToString} from '../utils/idsToString';
 
 type TasksResolver = QueryResolvers<Context>['tasks'];
+type TaskResolver = QueryResolvers<Context>['task'];
 type TaskByIdResolver = Resolver<
   ResolversTypes['Task'],
   {id_task: string},
@@ -18,7 +19,17 @@ export const tasks: TasksResolver = (parent, args, context) => {
   });
 };
 
-export const taskById: TaskByIdResolver = (parent, args, context) => {
+export const task: TaskResolver = (parent, args, context) => {
+  const {client} = context;
+  const {id} = args;
+
+  return getTaskById(client, Number(id)).then(({id, ...rest}) => ({
+    id: String(id),
+    ...rest,
+  }));
+};
+
+export const taskByParent: TaskByIdResolver = (parent, args, context) => {
   const {client} = context;
   const {id_task} = parent;
 

@@ -15,7 +15,7 @@ import {
 
 type TaskAnswersResolvers = TaskResolvers<Context>['answers'];
 type StudentTaskAnswersResolvers = StudentResolvers<Context>['task_answers'];
-type TaskAnswerByIdResolver = Resolver<
+type TaskAnswerByParentIdResolver = Resolver<
   ResolversTypes['TaskAnswer'],
   {id_task_answer: string},
   Context
@@ -57,7 +57,7 @@ export const studentTaskAnswers: StudentTaskAnswersResolvers = (
   });
 };
 
-export const taskAnswerById: TaskAnswerByIdResolver = (
+export const taskAnswerByParentId: TaskAnswerByParentIdResolver = (
   parent,
   args,
   context,
