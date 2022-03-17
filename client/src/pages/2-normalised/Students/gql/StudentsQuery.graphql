@@ -1,0 +1,6 @@
+query StudentsQuery {
+  students {
+    id
+    name
+  }
+}

@@ -1,0 +1,15 @@
+query TasksQuery {
+  tasks {
+    id
+    title
+    description
+    answers {
+      id
+      content
+      student {
+        id
+        name
+      }
+    }
+  }
+}

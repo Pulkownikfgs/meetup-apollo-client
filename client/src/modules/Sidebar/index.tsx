@@ -38,6 +38,7 @@ export const Sidebar: FC = () => {
     <List>
       <ListItemLink to='/' primary='Home' />
       <ListItemLink to='/1-non-normalised' primary='1. Non-normalised cache' />
+      <ListItemLink to='/2-normalised' primary='2. Normalised cache' />
     </List>
   );
 };
