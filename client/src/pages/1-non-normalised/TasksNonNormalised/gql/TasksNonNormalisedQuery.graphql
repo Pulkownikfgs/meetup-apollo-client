@@ -1,0 +1,12 @@
+query TasksNonNormalisedQuery {
+  tasks {
+    title
+    description
+    answers {
+      content
+      student {
+        name
+      }
+    }
+  }
+}

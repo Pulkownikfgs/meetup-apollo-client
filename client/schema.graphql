@@ -1,0 +1,34 @@
+type Query {
+  students: [Student!]!
+  tasks: [Task!]!
+}
+
+type Student {
+  id: ID!
+  name: String!
+  task_answers: [TaskAnswer!]
+}
+
+type Task {
+  answers: [TaskAnswer!]
+  description: String!
+  id: ID!
+  title: String!
+}
+
+type TaskAnswer {
+  comments: [TaskAnswerComment!]
+  content: String!
+  id: ID!
+  student: Student!
+  task: Task!
+  timestamp: String!
+}
+
+type TaskAnswerComment {
+  id: ID!
+  student: Student!
+  task_answer: TaskAnswer!
+  text: String!
+  timestamp: String!
+}

@@ -1,0 +1,5 @@
+query StudentsNonNormalisedQuery {
+  students {
+    name
+  }
+}
