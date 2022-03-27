@@ -6,3 +6,4 @@ dist-ssr
 bundle-size
 src/gql/types.ts
 src/**/*generated.ts
+.npmrc
