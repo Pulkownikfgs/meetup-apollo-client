@@ -1,11 +1,16 @@
 import {Client} from 'pg';
+import {env} from 'process';
+
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const client = new Client({
-  host: 'localhost',
-  port: 5432,
-  database: 'meetup_db',
-  password: 'postgres',
-  user: 'postgres',
+  host: env.POSTGRES_HOST,
+  port: Number(env.POSTGRES_PORT),
+  database: env.POSTGRES_DB,
+  password: env.POSTGRES_PASSWORD,
+  user: env.POSTGRES_USER,
 });
 
 client.connect();
