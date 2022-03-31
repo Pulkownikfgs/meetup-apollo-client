@@ -6,6 +6,7 @@
   "scripts": {
     "wait": "ts-node src/pgwait.ts",
     "migrate": "ts-node src/migrations/runner.ts",
+    "seed": "ts-node src/seed/index.ts",
     "start": "ts-node src/index.ts",
     "start:watch": "ts-node-dev --respawn src/index.ts",
     "generate:types": "graphql-codegen --config codegen.yml"
