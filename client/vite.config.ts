@@ -1,14 +1,13 @@
 import react from '@vitejs/plugin-react';
-import Checker from 'vite-plugin-checker';
 import { resolve } from 'path';
 import { UserConfig } from 'vite';
-import { visualizer } from 'rollup-plugin-visualizer';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 function pathResolve(dir: string) {
   return resolve(__dirname, '.', dir);
 }
-
-const shouldAnalyze = process.env.ANALYZE;
 
 const config: UserConfig = {
   resolve: {
@@ -19,17 +18,13 @@ const config: UserConfig = {
       }
     ]
   },
-  build: {
-    rollupOptions: {
-      plugins: !!shouldAnalyze ? [visualizer({ open: true, filename: './bundle-size/bundle.html' })] : []
-    },
-    sourcemap: !!shouldAnalyze
-  },
   plugins: [react()],
   server: {
+    host: '0.0.0.0',
+    port: 3000,
     proxy: {
       '/api': {
-        target: 'http://localhost:4000/',
+        target: `http://${process.env.SERVER_HOST}:${process.env.SERVER_PORT}/`,
         changeOrigin: true,
         rewrite: path => path.replace(/^\/api/, '')
       }

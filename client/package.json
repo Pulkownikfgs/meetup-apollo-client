@@ -6,10 +6,12 @@
     "format": "prettier --write src",
     "lint": "eslint --ext .ts,.tsx src",
     "dev": "vite",
+    "start": "concurrently -p \"[{name}]\" -n \"VITE,GQL\" \"yarn dev\" \"yarn generate:types:watch\"",
     "build": "tsc --noEmit && vite build",
     "analyze": "ANALYZE=true yarn build",
     "serve": "vite preview",
     "generate:types": "graphql-codegen --config .graphqlrc.yml",
+    "generate:types:watch": "graphql-codegen --config .graphqlrc.yml --watch",
     "generate:schema": "graphql-codegen --config introspect.yml"
   },
   "dependencies": {
@@ -36,6 +38,8 @@
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@vitejs/plugin-react": "^1.0.1",
+    "concurrently": "^7.0.0",
+    "dotenv": "^16.0.0",
     "eslint": "^7.32.0",
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.4.1",

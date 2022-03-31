@@ -37,3 +37,14 @@ services:
       POSTGRES_USER: '${POSTGRES_USER}'
       POSTGRES_PASSWORD: '${POSTGRES_PASSWORD}'
       POSTGRES_DB: '${POSTGRES_DB}'
+  client:
+    build: ./client
+    ports:
+      - '3000:3000'
+    depends_on:
+      - 'server'
+    volumes:
+      - ./client/src:/app/src
+    environment:
+      SERVER_HOST: server
+      SERVER_PORT: 4000
