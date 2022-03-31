@@ -11,4 +11,4 @@ COPY codegen.yml tsconfig.json ./
 COPY src/ ./src
 RUN yarn generate:types
 
-CMD yarn migrate && yarn start:watch
+CMD yarn wait && yarn migrate && yarn start:watch

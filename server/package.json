@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "wait": "ts-node src/pgwait.ts",
     "migrate": "ts-node src/migrations/runner.ts",
     "start": "ts-node src/index.ts",
     "start:watch": "ts-node-dev --respawn src/index.ts",
