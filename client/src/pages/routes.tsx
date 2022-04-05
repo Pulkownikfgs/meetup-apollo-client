@@ -2,6 +2,7 @@ import { IndirectUpdate } from './IndirectUpdate';
 import { MultipleQueries } from './MultipleQueries';
 import { NonNormalised } from './NonNormalised';
 import { Normalised } from './Normalised';
+import { ObserverUsage } from './ObserverUsage';
 
 export const ROUTES = [
   {
@@ -23,5 +24,10 @@ export const ROUTES = [
     path: 'indirect_update',
     element: <IndirectUpdate />,
     title: 'Indirect update'
+  },
+  {
+    path: 'observer_usage',
+    element: <ObserverUsage />,
+    title: 'Observer usage'
   }
 ];

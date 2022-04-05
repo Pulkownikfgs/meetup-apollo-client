@@ -1,0 +1,6 @@
+query StudentsObserverQuery {
+  students {
+    id
+    name
+  }
+}
