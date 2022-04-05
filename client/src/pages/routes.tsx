@@ -1,3 +1,4 @@
+import { MultipleQueries } from './MultipleQueries';
 import { NonNormalised } from './NonNormalised';
 import { Normalised } from './Normalised';
 
@@ -11,5 +12,10 @@ export const ROUTES = [
     path: 'normalised',
     element: <Normalised />,
     title: 'Normalised cache'
+  },
+  {
+    path: 'multiple_queries',
+    element: <MultipleQueries />,
+    title: 'Multiple queries'
   }
 ];
