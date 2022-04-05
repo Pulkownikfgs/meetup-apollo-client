@@ -8,8 +8,9 @@
     "migrate": "ts-node src/migrations/runner.ts",
     "seed": "ts-node src/seed/index.ts",
     "start": "ts-node src/index.ts",
-    "start:watch": "ts-node-dev --respawn src/index.ts",
-    "generate:types": "graphql-codegen --config codegen.yml"
+    "start:watch": "concurrently -p \"[{name}]\" -n \"SERVER,GQL\" \"ts-node-dev --respawn src/index.ts\" \"yarn generate:types:watch\"",
+    "generate:types": "graphql-codegen --config codegen.yml",
+    "generate:types:watch": "graphql-codegen --config codegen.yml --watch"
   },
   "dependencies": {
     "@graphql-tools/graphql-file-loader": "^7.3.4",
@@ -28,6 +29,7 @@
     "@graphql-codegen/introspection": "2.1.1",
     "@graphql-codegen/typescript": "2.4.7",
     "@graphql-codegen/typescript-resolvers": "2.5.4",
+    "concurrently": "^7.1.0",
     "prettier": "^2.5.1",
     "ts-node-dev": "^1.1.8"
   }
