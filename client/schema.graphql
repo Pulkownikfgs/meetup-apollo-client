@@ -1,5 +1,11 @@
+type Mutation {
+  updateStudent(student: UpdateStudentInput!): Student!
+}
+
 type Query {
+  student(id: ID!): Student!
   students: [Student!]!
+  task(id: ID!): Task!
   tasks: [Task!]!
 }
 
@@ -31,4 +37,9 @@ type TaskAnswerComment {
   task_answer: TaskAnswer!
   text: String!
   timestamp: String!
+}
+
+input UpdateStudentInput {
+  id: ID!
+  name: String
 }
