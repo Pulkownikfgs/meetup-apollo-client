@@ -4,6 +4,11 @@ type Student {
   task_answers: [TaskAnswer!]
 }
 
+input UpdateStudentInput {
+  id: ID!
+  name: String
+}
+
 type Task {
   id: ID!
   title: String!
@@ -33,4 +38,8 @@ type Query {
   student(id: ID!): Student!
   tasks: [Task!]!
   task(id: ID!): Task!
+}
+
+type Mutation {
+  updateStudent(student: UpdateStudentInput!): Student!
 }

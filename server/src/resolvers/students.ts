@@ -1,7 +1,16 @@
-import {Context} from '../context';
-import {QueryResolvers, ResolversTypes, Resolver} from '../generated/graphql';
+import {context, Context} from '../context';
+import {
+  QueryResolvers,
+  ResolversTypes,
+  Resolver,
+  MutationResolvers,
+} from '../generated/graphql';
 import {idsToString} from '../utils/idsToString';
-import {getStudentById, getStudents} from '../store/students';
+import {
+  getStudentById,
+  getStudents,
+  updateStudent as updateStudentStore,
+} from '../store/students';
 
 type StudentsResolver = QueryResolvers<Context>['students'];
 type StudentByIdResolver = Resolver<
@@ -11,6 +20,7 @@ type StudentByIdResolver = Resolver<
 >;
 
 type StudentResolver = QueryResolvers<Context>['student'];
+type UpdateStudentResover = MutationResolvers<Context>['updateStudent'];
 
 export const students: StudentsResolver = (parent, args, context) => {
   const {client} = context;
@@ -42,4 +52,17 @@ export const student: StudentResolver = (parent, args, context) => {
     id: String(id),
     name,
   }));
+};
+
+export const updateStudent: UpdateStudentResover = (parent, args, context) => {
+  const {client} = context;
+  const {student} = args;
+  const {id, ...rest} = student;
+
+  return updateStudentStore(client, {id: Number(id), ...rest}).then(
+    ({id, name}) => ({
+      id: String(id),
+      name,
+    }),
+  );
 };
