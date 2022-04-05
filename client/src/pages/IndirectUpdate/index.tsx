@@ -4,18 +4,24 @@ import Paper from '@mui/material/Paper';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import { Students } from '@/modules/Students';
-import { Tasks } from '@/modules/Tasks';
+import { StudentUpdate } from '@/modules/StudentUpdate';
+import { TasksRefetch } from '@/modules/TasksRefetch';
 
-export const Normalised: FC = () => {
+export const IndirectUpdate: FC = () => {
   return (
     <Container>
       <Grid container spacing={2} alignItems='stretch'>
-        <Grid item xs={6}>
+        <Grid item xs={4}>
           <Paper sx={{ p: 2, height: '100%' }}>
-            <Tasks />
+            <StudentUpdate />
           </Paper>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={4}>
+          <Paper sx={{ p: 2, height: '100%' }}>
+            <TasksRefetch />
+          </Paper>
+        </Grid>
+        <Grid item xs={4}>
           <Paper sx={{ p: 2, height: '100%' }}>
             <Students />
           </Paper>

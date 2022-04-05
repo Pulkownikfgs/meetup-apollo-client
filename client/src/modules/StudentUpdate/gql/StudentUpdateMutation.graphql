@@ -1,0 +1,5 @@
+mutation StudentUpdateMutation($student: UpdateStudentInput!) {
+  updateStudent(student: $student) {
+    id
+  }
+}

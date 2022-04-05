@@ -1,3 +1,4 @@
+import { IndirectUpdate } from './IndirectUpdate';
 import { MultipleQueries } from './MultipleQueries';
 import { NonNormalised } from './NonNormalised';
 import { Normalised } from './Normalised';
@@ -17,5 +18,10 @@ export const ROUTES = [
     path: 'multiple_queries',
     element: <MultipleQueries />,
     title: 'Multiple queries'
+  },
+  {
+    path: 'indirect_update',
+    element: <IndirectUpdate />,
+    title: 'Indirect update'
   }
 ];
