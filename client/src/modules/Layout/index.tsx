@@ -13,6 +13,7 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { Sidebar } from '../Sidebar';
 import { CacheReset } from '../CacheReset';
+import { PageTitle } from '../PageTitle';
 
 const drawerWidth = 240;
 
@@ -91,7 +92,7 @@ export const Layout: FC = ({ children }) => {
           >
             <MenuIcon />
           </IconButton>
-          <Box sx={{ flexGrow: '1' }} />
+          <PageTitle />
           <CacheReset />
         </Toolbar>
       </AppBar>
