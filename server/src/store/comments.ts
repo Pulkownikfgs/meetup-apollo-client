@@ -14,7 +14,7 @@ export const getAnswerCommentsByAnswerId = (
 ) =>
   client
     .query<CommentRow>(
-      'select id, id_task_answer, id_student, text, timestamp from task_answer_comments where id_task_answer = $1',
+      'select id, id_task_answer, id_student, text, timestamp from task_answer_comments where id_task_answer = $1 order by id',
       [id_task_answer],
     )
     .then(({rows}) => rows);

@@ -12,7 +12,7 @@ export interface TasksPaginated {
 
 export const getTasks = (client: Client) =>
   client
-    .query<TaskRow>('select id, title, description from tasks')
+    .query<TaskRow>('select id, title, description from tasks order by id')
     .then(({rows}) => rows);
 
 export const getTasksPaginated = (

@@ -12,7 +12,7 @@ export interface StudentUpdateRow {
 
 export const getStudents = (client: Client) =>
   client
-    .query<StudentRow>('select id, name from students')
+    .query<StudentRow>('select id, name from students order by id')
     .then(({rows}) => rows);
 
 export const getStudentById = (client: Client, id: number) =>
