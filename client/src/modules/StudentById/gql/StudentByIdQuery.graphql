@@ -1,0 +1,10 @@
+query StudentByIdQuery($studentId: ID!) {
+  student(id: $studentId) {
+    id
+    name
+    task_answers {
+      id
+      content
+    }
+  }
+}

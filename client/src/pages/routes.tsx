@@ -1,3 +1,4 @@
+import { ArgsPart1 } from './ArgsPart1';
 import { IndirectUpdate } from './IndirectUpdate';
 import { MultipleQueries } from './MultipleQueries';
 import { NonNormalised } from './NonNormalised';
@@ -29,5 +30,10 @@ export const ROUTES = [
     path: 'observer_usage',
     element: <ObserverUsage />,
     title: 'Observer usage'
+  },
+  {
+    path: 'args_part_1',
+    element: <ArgsPart1 />,
+    title: 'Args: part 1'
   }
 ];

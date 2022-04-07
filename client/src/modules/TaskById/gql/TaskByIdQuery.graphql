@@ -1,0 +1,11 @@
+query TaskByIdQuery($taskId: ID!) {
+  task(id: $taskId) {
+    id
+    title
+    description
+    answers {
+      id
+      content
+    }
+  }
+}
