@@ -16,6 +16,22 @@ type Task {
   answers: [TaskAnswer!]
 }
 
+input PaginationInput {
+  offset: Int!
+  limit: Int!
+}
+
+type PaginationResult {
+  offset: Int!
+  limit: Int!
+  total: Int!
+}
+
+type TasksPaginationResult {
+  pagination: PaginationResult!
+  tasks: [Task!]!
+}
+
 type TaskAnswer {
   id: ID!
   content: String!
@@ -37,6 +53,7 @@ type Query {
   students: [Student!]!
   student(id: ID!): Student!
   tasks: [Task!]!
+  tasks_pages(pagination: PaginationInput!): TasksPaginationResult
   task(id: ID!): Task!
 }
 
