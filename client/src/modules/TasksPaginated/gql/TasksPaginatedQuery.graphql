@@ -1,0 +1,14 @@
+query TasksPaginatedQuery($offset: Int!, $limit: Int!) {
+  tasks_pages(pagination: { offset: $offset, limit: $limit }) {
+    pagination {
+      limit
+      offset
+      total
+    }
+    tasks {
+      id
+      title
+      description
+    }
+  }
+}

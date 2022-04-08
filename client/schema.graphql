@@ -2,11 +2,23 @@ type Mutation {
   updateStudent(student: UpdateStudentInput!): Student!
 }
 
+input PaginationInput {
+  limit: Int!
+  offset: Int!
+}
+
+type PaginationResult {
+  limit: Int!
+  offset: Int!
+  total: Int!
+}
+
 type Query {
   student(id: ID!): Student!
   students: [Student!]!
   task(id: ID!): Task!
   tasks: [Task!]!
+  tasks_pages(pagination: PaginationInput!): TasksPaginationResult
 }
 
 type Student {
@@ -37,6 +49,11 @@ type TaskAnswerComment {
   task_answer: TaskAnswer!
   text: String!
   timestamp: String!
+}
+
+type TasksPaginationResult {
+  pagination: PaginationResult!
+  tasks: [Task!]!
 }
 
 input UpdateStudentInput {
