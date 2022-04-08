@@ -7,8 +7,9 @@ RUN yarn install
 
 FROM package AS build
 
-COPY .graphqlrc.yml tsconfig.json schema.graphql ./
+COPY .graphqlrc.yml tsconfig.json ./
 COPY src/ ./src
+COPY schema/ ./schema
 RUN yarn generate:types
 
 COPY vite.config.ts index.html ./

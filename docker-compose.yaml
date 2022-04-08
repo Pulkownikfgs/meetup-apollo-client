@@ -45,6 +45,7 @@ services:
       - 'server'
     volumes:
       - ./client/src:/app/src
+      - ./client/schema:/app/schema
     environment:
       SERVER_HOST: server
       SERVER_PORT: 4000
