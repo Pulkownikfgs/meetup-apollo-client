@@ -4,6 +4,9 @@ generates:
   src/gql/types.ts:
     plugins:
       - 'typescript'
+  src/gql/apollo-helpers.ts:
+    plugins:
+      - typescript-apollo-client-helpers
   src/:
     preset: near-operation-file
     presetConfig:

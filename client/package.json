@@ -32,6 +32,7 @@
     "@graphql-codegen/near-operation-file-preset": "^2.2.8",
     "@graphql-codegen/schema-ast": "^2.4.1",
     "@graphql-codegen/typescript": "2.4.7",
+    "@graphql-codegen/typescript-apollo-client-helpers": "^2.1.15",
     "@graphql-codegen/typescript-operations": "2.3.4",
     "@graphql-codegen/typescript-react-apollo": "3.2.10",
     "@types/node": "^14.14.31",
