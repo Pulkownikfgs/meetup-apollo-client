@@ -12,6 +12,7 @@ export const resolvers: Resolvers<Context> = {
     student,
     tasks,
     tasks_pages: tasksPages,
+    tasks_feed: tasksPages,
     task,
   },
   Mutation: {
