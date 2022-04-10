@@ -1,0 +1,7 @@
+query TasksFeedQuery($offset: Int!, $limit: Int!) {
+  tasks_feed(pagination: { offset: $offset, limit: $limit }) {
+    id
+    title
+    description
+  }
+}
