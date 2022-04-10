@@ -2,7 +2,7 @@ import {Context} from '../context';
 import {Resolvers} from '../generated/graphql';
 
 import {students, student, studentByParentId, updateStudent} from './students';
-import {tasks, tasksPages, task, taskByParent} from './tasks';
+import {tasks, tasksPages, task, taskByParent, tasksFeed} from './tasks';
 import {answers, studentTaskAnswers, taskAnswerByParentId} from './answers';
 import {comments} from './comments';
 
@@ -12,7 +12,7 @@ export const resolvers: Resolvers<Context> = {
     student,
     tasks,
     tasks_pages: tasksPages,
-    tasks_feed: tasksPages,
+    tasks_feed: tasksFeed,
     task,
   },
   Mutation: {

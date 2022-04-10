@@ -12,6 +12,7 @@ type TaskByIdResolver = Resolver<
 >;
 
 type TasksPaginatedResolver = QueryResolvers<Context>['tasks_pages'];
+type TasksFeedResolver = QueryResolvers<Context>['tasks_feed'];
 
 export const tasks: TasksResolver = (parent, args, context) => {
   const {client} = context;
@@ -36,6 +37,17 @@ export const tasksPages: TasksPaginatedResolver = (parent, args, context) => {
       },
       tasks: idsToString(tasks),
     };
+  });
+};
+
+export const tasksFeed: TasksFeedResolver = (parent, args, context) => {
+  const {client} = context;
+  const {
+    pagination: {limit, offset},
+  } = args;
+
+  return getTasksPaginated(client, offset, limit).then(({tasks, total}) => {
+    return idsToString(tasks);
   });
 };
 

@@ -54,7 +54,7 @@ type Query {
   student(id: ID!): Student!
   tasks: [Task!]!
   tasks_pages(pagination: PaginationInput!): TasksPaginationResult
-  tasks_feed(pagination: PaginationInput!): TasksPaginationResult
+  tasks_feed(pagination: PaginationInput!): [Task!]!
   task(id: ID!): Task!
 }
 
