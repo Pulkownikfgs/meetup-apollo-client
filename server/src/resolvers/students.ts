@@ -10,6 +10,8 @@ import {
   getStudentById,
   getStudents,
   updateStudent as updateStudentStore,
+  insertStudent as insertStudentStore,
+  deleteStudent as deleteStudentStore,
 } from '../store/students';
 
 type StudentsResolver = QueryResolvers<Context>['students'];
@@ -21,6 +23,8 @@ type StudentByIdResolver = Resolver<
 
 type StudentResolver = QueryResolvers<Context>['student'];
 type UpdateStudentResover = MutationResolvers<Context>['updateStudent'];
+type InsertStudentResolver = MutationResolvers<Context>['insertStudent'];
+type DeleteStudentResolver = MutationResolvers<Context>['deleteStudent'];
 
 export const students: StudentsResolver = (parent, args, context) => {
   const {client} = context;
@@ -64,5 +68,25 @@ export const updateStudent: UpdateStudentResover = (parent, args, context) => {
       id: String(id),
       name,
     }),
+  );
+};
+
+export const insertStudent: InsertStudentResolver = (parent, args, context) => {
+  const {client} = context;
+  const {student} = args;
+  const {name} = student;
+
+  return insertStudentStore(client, name).then(({id, name}) => ({
+    id: String(id),
+    name,
+  }));
+};
+
+export const deleteStudent: DeleteStudentResolver = (parent, args, context) => {
+  const {client} = context;
+  const {id} = args;
+
+  return deleteStudentStore(client, Number(id)).then((id) =>
+    id ? String(id) : null,
   );
 };

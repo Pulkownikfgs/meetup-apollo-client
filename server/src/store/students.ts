@@ -27,3 +27,21 @@ export const updateStudent = (client: Client, {id, name}: StudentUpdateRow) =>
       [id, name],
     )
     .then(({rows}) => rows[0]);
+
+export const insertStudent = (client: Client, name: string) =>
+  client
+    .query<StudentRow>(
+      'insert into students (name) values ($1) returning id, name',
+      [name],
+    )
+    .then(({rows}) => rows[0]);
+
+export const deleteStudent = (
+  client: Client,
+  id: number,
+): Promise<number | null> =>
+  client
+    .query<{id: number}>('delete from students where id = $1 returning id', [
+      id,
+    ])
+    .then(({rows}) => rows[0]?.id ?? null);

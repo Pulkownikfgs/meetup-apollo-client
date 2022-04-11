@@ -9,6 +9,10 @@ input UpdateStudentInput {
   name: String
 }
 
+input InsertStudentInput {
+  name: String!
+}
+
 type Task {
   id: ID!
   title: String!
@@ -60,4 +64,6 @@ type Query {
 
 type Mutation {
   updateStudent(student: UpdateStudentInput!): Student!
+  insertStudent(student: InsertStudentInput!): Student!
+  deleteStudent(id: ID!): ID
 }
