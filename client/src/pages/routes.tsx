@@ -1,5 +1,6 @@
 import { ArgsPart1 } from './ArgsPart1';
 import { ArgsPart2 } from './ArgsPart2';
+import { FetchPolicy } from './FetchPolicy';
 import { IndirectUpdate } from './IndirectUpdate';
 import { MultipleQueries } from './MultipleQueries';
 import { NonNormalised } from './NonNormalised';
@@ -41,5 +42,10 @@ export const ROUTES = [
     path: 'args_part_2',
     element: <ArgsPart2 />,
     title: 'Args: part 2'
+  },
+  {
+    path: 'fetch_policy',
+    element: <FetchPolicy />,
+    title: 'Fetch policy'
   }
 ];
