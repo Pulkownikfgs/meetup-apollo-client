@@ -1,0 +1,6 @@
+mutation StudentInsertMutation($student: InsertStudentInput!) {
+  insertStudent(student: $student) {
+    id
+    name
+  }
+}

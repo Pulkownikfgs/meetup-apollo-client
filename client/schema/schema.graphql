@@ -1,4 +1,10 @@
+input InsertStudentInput {
+  name: String!
+}
+
 type Mutation {
+  deleteStudent(id: ID!): Student
+  insertStudent(student: InsertStudentInput!): Student!
   updateStudent(student: UpdateStudentInput!): Student!
 }
 

@@ -1,6 +1,7 @@
 import { ArgsPart1 } from './ArgsPart1';
 import { ArgsPart2 } from './ArgsPart2';
 import { CacheUpdate } from './CacheUpdate';
+import { CacheUpdateExplicit } from './CacheUpdateExplicit';
 import { FetchPolicy } from './FetchPolicy';
 import { IndirectUpdate } from './IndirectUpdate';
 import { MultipleQueries } from './MultipleQueries';
@@ -53,5 +54,10 @@ export const ROUTES = [
     path: 'cache_update',
     element: <CacheUpdate />,
     title: 'Cache update (implicit)'
+  },
+  {
+    path: 'cache_update_explicit',
+    element: <CacheUpdateExplicit />,
+    title: 'Cache update (explicit)'
   }
 ];
