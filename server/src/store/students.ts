@@ -39,9 +39,10 @@ export const insertStudent = (client: Client, name: string) =>
 export const deleteStudent = (
   client: Client,
   id: number,
-): Promise<number | null> =>
+): Promise<StudentRow | null> =>
   client
-    .query<{id: number}>('delete from students where id = $1 returning id', [
-      id,
-    ])
-    .then(({rows}) => rows[0]?.id ?? null);
+    .query<StudentRow>(
+      'delete from students where id = $1 returning id, name',
+      [id],
+    )
+    .then(({rows}) => rows[0] ?? null);

@@ -65,5 +65,5 @@ type Query {
 type Mutation {
   updateStudent(student: UpdateStudentInput!): Student!
   insertStudent(student: InsertStudentInput!): Student!
-  deleteStudent(id: ID!): ID
+  deleteStudent(id: ID!): Student
 }

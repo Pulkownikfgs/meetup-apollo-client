@@ -86,7 +86,12 @@ export const deleteStudent: DeleteStudentResolver = (parent, args, context) => {
   const {client} = context;
   const {id} = args;
 
-  return deleteStudentStore(client, Number(id)).then((id) =>
-    id ? String(id) : null,
-  );
+  return deleteStudentStore(client, Number(id)).then((student) => {
+    if (!student) {
+      return null;
+    }
+
+    const {id, name} = student;
+    return {id: String(id), name};
+  });
 };
