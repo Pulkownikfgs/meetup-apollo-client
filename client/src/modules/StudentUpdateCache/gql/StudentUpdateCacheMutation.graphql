@@ -1,0 +1,6 @@
+mutation StudentUpdateCacheMutation($student: UpdateStudentInput!) {
+  updateStudent(student: $student) {
+    id
+    name
+  }
+}
