@@ -5,7 +5,7 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import { TasksFeed } from '@/modules/TasksFeed';
 
-export const ArgsPart2: FC = () => {
+export const Pagination: FC = () => {
   return (
     <Container>
       <Grid container spacing={2} alignItems='stretch'>

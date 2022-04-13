@@ -1,5 +1,5 @@
 import { ArgsPart1 } from './ArgsPart1';
-import { ArgsPart2 } from './ArgsPart2';
+import { Pagination } from './Pagination';
 import { CacheUpdate } from './CacheUpdate';
 import { CacheUpdateExplicit } from './CacheUpdateExplicit';
 import { FetchPolicy } from './FetchPolicy';
@@ -36,14 +36,14 @@ export const ROUTES = [
     title: 'Observer usage'
   },
   {
-    path: 'args_part_1',
+    path: 'args',
     element: <ArgsPart1 />,
-    title: 'Args: part 1'
+    title: 'Args'
   },
   {
-    path: 'args_part_2',
-    element: <ArgsPart2 />,
-    title: 'Args: part 2'
+    path: 'pagination',
+    element: <Pagination />,
+    title: 'Pagination'
   },
   {
     path: 'fetch_policy',
