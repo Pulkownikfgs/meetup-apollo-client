@@ -8,6 +8,8 @@ import { MultipleQueries } from './MultipleQueries';
 import { NonNormalised } from './NonNormalised';
 import { Normalised } from './Normalised';
 import { ObserverUsage } from './ObserverUsage';
+import { CacheHit } from './CacheHit';
+import { CacheMiss } from './CacheMiss';
 
 export const ROUTES = [
   {
@@ -24,6 +26,16 @@ export const ROUTES = [
     path: 'multiple_queries',
     element: <MultipleQueries />,
     title: 'Multiple queries'
+  },
+  {
+    path: 'cache_hit',
+    element: <CacheHit />,
+    title: 'Cache hit'
+  },
+  {
+    path: 'cache_miss',
+    element: <CacheMiss />,
+    title: 'Cache miss'
   },
   {
     path: 'indirect_update',

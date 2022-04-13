@@ -1,0 +1,11 @@
+query StudentsAnswersQuery {
+  students {
+    id
+    name
+    task_answers {
+      id
+      content
+      timestamp
+    }
+  }
+}
