@@ -7,7 +7,6 @@ import { ROUTES } from '@/pages/routes';
 export const Sidebar: FC = () => {
   return (
     <List>
-      <ListItemLink to='/' primary='Home' />
       {ROUTES.map(({ path, title }, index) => (
         <ListItemLink key={path} to={path} primary={`${index + 1}. ${title}`} />
       ))}
