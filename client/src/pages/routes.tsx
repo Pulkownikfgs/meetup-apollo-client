@@ -10,6 +10,7 @@ import { Normalised } from './Normalised';
 import { ObserverUsage } from './ObserverUsage';
 import { CacheHit } from './CacheHit';
 import { CacheMiss } from './CacheMiss';
+import { CacheUpdateRefetch } from './CacheUpdateRefetch';
 
 export const ROUTES = [
   {
@@ -71,5 +72,10 @@ export const ROUTES = [
     path: 'cache_update_explicit',
     element: <CacheUpdateExplicit />,
     title: 'Cache update (explicit)'
+  },
+  {
+    path: 'cache_update_refetch',
+    element: <CacheUpdateRefetch />,
+    title: 'Cache update (explicit refetch)'
   }
 ];

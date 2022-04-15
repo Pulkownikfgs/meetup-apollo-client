@@ -6,6 +6,10 @@ query TaskByIdQuery($taskId: ID!) {
     answers {
       id
       content
+      student {
+        id
+        name
+      }
     }
   }
 }
