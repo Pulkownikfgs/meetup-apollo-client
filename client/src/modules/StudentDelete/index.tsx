@@ -21,6 +21,12 @@ export const StudentDelete: FC = () => {
 
         cache.evict({ id: cache.identify(student) });
         cache.gc();
+      },
+      onQueryUpdated: observableQuery => {
+        console.log(observableQuery.queryId, observableQuery.queryName);
+
+        // return observableQuery.refetch();
+        return true;
       }
     });
   }, [id, deleteStudent]);
